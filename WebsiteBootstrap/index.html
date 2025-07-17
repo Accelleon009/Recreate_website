@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrunchyClone</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo-crunchy.png" alt="CrunchyClone" width="30" height="30" class="d-inline-block align-text-top" />
+      CrunchyClone
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="text-center p-5" style="background-image: url('img/hero-jujutsu-kaisen.jpg'); background-size: cover; background-position: center;">
+    <div class="bg-dark bg-opacity-75 p-4 text-white rounded">
+      <h1>Stream Anime Anytime</h1>
+      <p>Thousands of episodes. No ads. Free trial available!</p>
+      <button class="btn btn-warning">Start Watching</button>
+    </div>
+  </header>
+
+  <!-- Theme Toggle -->
+  <div class="text-center my-4">
+    <button class="btn btn-outline-dark" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </div>
+
+  <!-- Carousel -->
+  <div id="animeCarousel" class="carousel slide my-5 container" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/carousel-one-piece.jpg" class="d-block w-100" alt="One Piece Banner">
+      </div>
+      <div class="carousel-item">
+        <img src="img/carousel-demon-slayer.jpeg" class="d-block w-100" alt="Demon Slayer Banner">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#animeCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#animeCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Cards -->
+  <section class="container my-5">
+    <h2>Popular Anime</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Card 1 -->
+      <div class="col">
+        <div class="card">
+          <img src="img/thumb-naruto.jpg" class="card-img-top" alt="Naruto">
+          <div class="card-body">
+            <h5 class="card-title">Naruto</h5>
+            <button class="btn btn-primary" onclick="playEpisode('Naruto', 1)">Watch Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col">
+        <div class="card">
+          <img src="img/thumb-one-piece.jpg" class="card-img-top" alt="One Piece">
+          <div class="card-body">
+            <h5 class="card-title">One Piece</h5>
+            <button class="btn btn-primary" onclick="playEpisode('One Piece', 1)">Watch Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col">
+        <div class="card">
+          <img src="img/thumb-demon-slayer.jpeg" class="card-img-top" alt="Demon Slayer">
+          <div class="card-body">
+            <h5 class="card-title">Demon Slayer</h5>
+            <button class="btn btn-primary" onclick="playEpisode('Demon Slayer', 1)">Watch Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table -->
+  <section class="container my-5">
+    <h2>Upcoming Releases</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Release Date</th>
+          <th>Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>One Piece</td>
+          <td>July 20, 2025</td>
+          <td>Action</td>
+        </tr>
+        <tr>
+          <td>Demon Slayer</td>
+          <td>August 1, 2025</td>
+          <td>Adventure</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Form -->
+  <section class="container my-5">
+    <h2>Sign Up</h2>
+    <form onsubmit="handleRegister(event)">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" id="email" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="birthdate" class="form-label">Date of Birth</label>
+        <input type="date" id="birthdate" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </section>
+
+  <!-- Modal Trigger -->
+  <div class="text-center my-5">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signupModal">
+      Launch Modal
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Signup Complete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          Thank you for registering! Enjoy your anime journey.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <small>© 2025 CrunchyClone. Not affiliated with Crunchyroll.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/features.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

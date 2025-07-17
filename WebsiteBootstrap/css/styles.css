@@ -1,0 +1,17 @@
+.carousel-inner {
+  background-color: var(--carousel-bg, #f8f9fa);
+  text-align: center;
+}
+
+body.bg-dark .carousel-inner {
+  --carousel-bg: #212529;
+}
+
+.carousel-inner img {
+  max-height: 400px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  object-fit: contain;
+}
